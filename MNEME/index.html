@@ -1,40 +1,244 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Mneme</title>
-    <meta name="description" content="Local-document RAG with Graph RAG — Named after Mnemosyne, the Greek goddess of memory">
-    <meta name="generator" content="VitePress v1.6.4">
-    <link rel="preload stylesheet" href="/MNEME/assets/style.BjKC4Pzu.css" as="style">
-    <link rel="preload stylesheet" href="/MNEME/vp-icons.css" as="style">
-    
-    <script type="module" src="/MNEME/assets/app.DrL00LyS.js"></script>
-    <link rel="preload" href="/MNEME/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
-    <link rel="modulepreload" href="/MNEME/assets/chunks/theme.DUof2dgz.js">
-    <link rel="modulepreload" href="/MNEME/assets/chunks/framework.CiQ1TEvV.js">
-    <link rel="modulepreload" href="/MNEME/assets/index.md.BOsEs1Fd.lean.js">
-    <link rel="icon" type="image/svg+xml" href="/MNEME/mneme-logo.svg">
-    <meta name="theme-color" content="#a78bfa">
-    <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
-    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f0e7">
+    <meta name="description" content="Mneme indexes local documents and returns answers you can trace back to the source.">
+    <meta property="og:title" content="Mneme — Local memory you can verify">
+    <meta property="og:description" content="Your documents. A memory you can verify.">
+    <meta property="og:type" content="website">
+    <title>Mneme — Local memory you can verify</title>
+    <link rel="icon" href="/MNEME/mneme-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/MNEME/mneme-home.css">
+    <script src="/MNEME/mneme-home.js" defer></script>
   </head>
-  <body>
-    <div id="app"><div class="Layout" data-v-d8b57b2d><!--[--><!--]--><!--[--><span tabindex="-1" data-v-fcbfc0e0></span><a href="#VPContent" class="VPSkipLink visually-hidden" data-v-fcbfc0e0>Skip to content</a><!--]--><!----><header class="VPNav" data-v-d8b57b2d data-v-7ad780c2><div class="VPNavBar" data-v-7ad780c2 data-v-9fd4d1dd><div class="wrapper" data-v-9fd4d1dd><div class="container" data-v-9fd4d1dd><div class="title" data-v-9fd4d1dd><div class="VPNavBarTitle" data-v-9fd4d1dd data-v-9f43907a><a class="title" href="/MNEME/" data-v-9f43907a><!--[--><!--]--><!--[--><img class="VPImage logo" src="/MNEME/mneme-logo.svg" alt data-v-ab19afbb><!--]--><!----><!--[--><!--]--></a></div></div><div class="content" data-v-9fd4d1dd><div class="content-body" data-v-9fd4d1dd><!--[--><!--]--><div class="VPNavBarSearch search" data-v-9fd4d1dd><!--[--><!----><div id="local-search"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search"><span class="DocSearch-Button-Container"><span class="vp-icon DocSearch-Search-Icon"></span><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"><kbd class="DocSearch-Button-Key"></kbd><kbd class="DocSearch-Button-Key">K</kbd></span></button></div><!--]--></div><nav aria-labelledby="main-nav-aria-label" class="VPNavBarMenu menu" data-v-9fd4d1dd data-v-afb2845e><span id="main-nav-aria-label" class="visually-hidden" data-v-afb2845e> Main Navigation </span><!--[--><!--[--><a class="VPLink link VPNavBarMenuLink active" href="/MNEME/" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>Home</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/MNEME/guide/getting-started" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>Guide</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/MNEME/features/hybrid-retrieval" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>Features</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/MNEME/blog/mneme-rag-engineering" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>Blog</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/MNEME/reference/configuration" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>Reference</span><!--]--></a><!--]--><!--]--></nav><div class="VPFlyout VPNavBarTranslations translations" data-v-9fd4d1dd data-v-acee064b data-v-bfe7971f><button type="button" class="button" aria-haspopup="true" aria-expanded="false" aria-label="Change language" data-v-bfe7971f><span class="text" data-v-bfe7971f><span class="vpi-languages option-icon" data-v-bfe7971f></span><!----><span class="vpi-chevron-down text-icon" data-v-bfe7971f></span></span></button><div class="menu" data-v-bfe7971f><div class="VPMenu" data-v-bfe7971f data-v-20ed86d6><!----><!--[--><!--[--><div class="items" data-v-acee064b><p class="title" data-v-acee064b>English</p><!--[--><div class="VPMenuLink" data-v-acee064b data-v-7eeeb2dc><a class="VPLink link" href="/MNEME/zh/" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>简体中文</span><!--]--></a></div><!--]--></div><!--]--><!--]--></div></div></div><div class="VPNavBarAppearance appearance" data-v-9fd4d1dd data-v-3f90c1a5><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-3f90c1a5 data-v-be9742d9 data-v-b4ccac88><span class="check" data-v-b4ccac88><span class="icon" data-v-b4ccac88><!--[--><span class="vpi-sun sun" data-v-be9742d9></span><span class="vpi-moon moon" data-v-be9742d9></span><!--]--></span></span></button></div><div class="VPSocialLinks VPNavBarSocialLinks social-links" data-v-9fd4d1dd data-v-ef6192dc data-v-e71e869c><!--[--><a class="VPSocialLink no-icon" href="https://github.com/realhenrylan/mneme" aria-label="github" target="_blank" rel="noopener" data-v-e71e869c data-v-60a9a2d3><span class="vpi-social-github"></span></a><!--]--></div><div class="VPFlyout VPNavBarExtra extra" data-v-9fd4d1dd data-v-f953d92f data-v-bfe7971f><button type="button" class="button" aria-haspopup="true" aria-expanded="false" aria-label="extra navigation" data-v-bfe7971f><span class="vpi-more-horizontal icon" data-v-bfe7971f></span></button><div class="menu" data-v-bfe7971f><div class="VPMenu" data-v-bfe7971f data-v-20ed86d6><!----><!--[--><!--[--><div class="group translations" data-v-f953d92f><p class="trans-title" data-v-f953d92f>English</p><!--[--><div class="VPMenuLink" data-v-f953d92f data-v-7eeeb2dc><a class="VPLink link" href="/MNEME/zh/" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>简体中文</span><!--]--></a></div><!--]--></div><div class="group" data-v-f953d92f><div class="item appearance" data-v-f953d92f><p class="label" data-v-f953d92f>Appearance</p><div class="appearance-action" data-v-f953d92f><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-f953d92f data-v-be9742d9 data-v-b4ccac88><span class="check" data-v-b4ccac88><span class="icon" data-v-b4ccac88><!--[--><span class="vpi-sun sun" data-v-be9742d9></span><span class="vpi-moon moon" data-v-be9742d9></span><!--]--></span></span></button></div></div></div><div class="group" data-v-f953d92f><div class="item social-links" data-v-f953d92f><div class="VPSocialLinks social-links-list" data-v-f953d92f data-v-e71e869c><!--[--><a class="VPSocialLink no-icon" href="https://github.com/realhenrylan/mneme" aria-label="github" target="_blank" rel="noopener" data-v-e71e869c data-v-60a9a2d3><span class="vpi-social-github"></span></a><!--]--></div></div></div><!--]--><!--]--></div></div></div><!--[--><!--]--><button type="button" class="VPNavBarHamburger hamburger" aria-label="mobile navigation" aria-expanded="false" aria-controls="VPNavScreen" data-v-9fd4d1dd data-v-6bee1efd><span class="container" data-v-6bee1efd><span class="top" data-v-6bee1efd></span><span class="middle" data-v-6bee1efd></span><span class="bottom" data-v-6bee1efd></span></span></button></div></div></div></div><div class="divider" data-v-9fd4d1dd><div class="divider-line" data-v-9fd4d1dd></div></div></div><!----></header><!----><!----><div class="VPContent is-home" id="VPContent" data-v-d8b57b2d data-v-9a6c75ad><div class="VPHome" data-v-9a6c75ad data-v-e07eaea7><!--[--><!--]--><div class="VPHero has-image VPHomeHero" data-v-e07eaea7 data-v-dd8814ff><div class="container" data-v-dd8814ff><div class="main" data-v-dd8814ff><!--[--><!--]--><!--[--><h1 class="heading" data-v-dd8814ff><span class="name clip" data-v-dd8814ff>Mneme</span><span class="text" data-v-dd8814ff>Local-document RAG with Graph RAG</span></h1><p class="tagline" data-v-dd8814ff>Named after Mnemosyne, the Greek goddess of memory — a local-document Retrieval-Augmented Generation system with a terminal UI.</p><!--]--><!--[--><!--]--><div class="actions" data-v-dd8814ff><!--[--><div class="action" data-v-dd8814ff><a class="VPButton medium brand" href="/MNEME/guide/getting-started" data-v-dd8814ff data-v-93dc4167>Get Started</a></div><div class="action" data-v-dd8814ff><a class="VPButton medium alt" href="https://github.com/realhenrylan/mneme" target="_blank" rel="noreferrer" data-v-dd8814ff data-v-93dc4167>View on GitHub</a></div><!--]--></div><!--[--><!--]--></div><div class="image" data-v-dd8814ff><div class="image-container" data-v-dd8814ff><div class="image-bg" data-v-dd8814ff></div><!--[--><!--[--><img class="VPImage image-src" src="/MNEME/tui-screenshot.png" alt="Mneme TUI Preview" data-v-ab19afbb><!--]--><!--]--></div></div></div></div><!--[--><!--]--><!--[--><!--]--><div class="VPFeatures VPHomeFeatures" data-v-e07eaea7 data-v-b1eea84a><div class="container" data-v-b1eea84a><div class="items" data-v-b1eea84a><!--[--><div class="grid-6 item" data-v-b1eea84a><a class="VPLink link no-icon VPFeature" href="/MNEME/features/hybrid-retrieval" data-v-b1eea84a data-v-bd37d1a2><!--[--><article class="box" data-v-bd37d1a2><div class="icon" data-v-bd37d1a2>🔍</div><h2 class="title" data-v-bd37d1a2>Hybrid Retrieval</h2><p class="details" data-v-bd37d1a2>Sentence-transformers + ChromaDB semantic search fused with BM25 keyword search using RRF (Reciprocal Rank Fusion). Best of both semantic and lexical worlds.</p><!----></article><!--]--></a></div><div class="grid-6 item" data-v-b1eea84a><a class="VPLink link no-icon VPFeature" href="/MNEME/features/graph-rag" data-v-b1eea84a data-v-bd37d1a2><!--[--><article class="box" data-v-bd37d1a2><div class="icon" data-v-bd37d1a2>🕸️</div><h2 class="title" data-v-bd37d1a2>Graph RAG</h2><p class="details" data-v-bd37d1a2>LLM-extracted entity relationships expand retrieval for connected, cross-document questions. Co-occurrence thresholds keep the graph clean.</p><!----></article><!--]--></a></div><div class="grid-6 item" data-v-b1eea84a><a class="VPLink link no-icon VPFeature" href="/MNEME/features/query-decomposition" data-v-b1eea84a data-v-bd37d1a2><!--[--><article class="box" data-v-bd37d1a2><div class="icon" data-v-bd37d1a2>🧩</div><h2 class="title" data-v-bd37d1a2>Query Decomposition</h2><p class="details" data-v-bd37d1a2>Complex questions are split into sub-queries and retrieved concurrently, then fused into a single comprehensive answer.</p><!----></article><!--]--></a></div><div class="grid-6 item" data-v-b1eea84a><a class="VPLink link no-icon VPFeature" href="/MNEME/features/safety" data-v-b1eea84a data-v-bd37d1a2><!--[--><article class="box" data-v-bd37d1a2><div class="icon" data-v-bd37d1a2>🛡️</div><h2 class="title" data-v-bd37d1a2>Safety by Design</h2><p class="details" data-v-bd37d1a2>HTTPS-by-default endpoints, bounded document sizes, explicit untrusted-document boundaries, and schema-validated JSON caches.</p><!----></article><!--]--></a></div><div class="grid-6 item" data-v-b1eea84a><a class="VPLink link no-icon VPFeature" href="/MNEME/guide/tui-commands" data-v-b1eea84a data-v-bd37d1a2><!--[--><article class="box" data-v-bd37d1a2><div class="icon" data-v-bd37d1a2>💻</div><h2 class="title" data-v-bd37d1a2>Terminal UI</h2><p class="details" data-v-bd37d1a2>Rich-based bilingual TUI with streaming chat, slash commands, file management, settings, and debounced directory watching.</p><!----></article><!--]--></a></div><div class="grid-6 item" data-v-b1eea84a><a class="VPLink link no-icon VPFeature" href="/MNEME/reference/supported-files" data-v-b1eea84a data-v-bd37d1a2><!--[--><article class="box" data-v-bd37d1a2><div class="icon" data-v-bd37d1a2>📄</div><h2 class="title" data-v-bd37d1a2>Wide Format Support</h2><p class="details" data-v-bd37d1a2>PDF, DOCX, Markdown, HTML, JSON, CSV, source code, and configuration files. Index locally, query with verifiable citations.</p><!----></article><!--]--></a></div><!--]--></div></div></div><!--[--><!--]--><div class="vp-doc container" style="" data-v-e07eaea7 data-v-c141a4bd><!--[--><div style="position:relative;" data-v-e07eaea7><div><h2 id="quick-preview" tabindex="-1">Quick Preview <a class="header-anchor" href="#quick-preview" aria-label="Permalink to &quot;Quick Preview&quot;">​</a></h2><div class="language-bash vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Clone and install</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> clone</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> https://github.com/realhenrylan/mneme.git</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">cd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> mneme</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">python</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> -m</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> venv</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> .venv</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">.venv\Scripts\Activate.ps1</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">  # Windows</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># source .venv/bin/activate  # macOS / Linux</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">python</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> -m</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> pip</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> install</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> -e</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;.[dev]&quot;</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Configure</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">copy</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> .env.example</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> .env</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Edit .env with your API_KEY and BASE_URL</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Launch the TUI</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">python</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> -m</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> tui</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>Learn more in the <a href="/MNEME/guide/getting-started">Getting Started guide</a>.</p></div></div><!--]--></div></div></div><footer class="VPFooter" data-v-d8b57b2d data-v-566314d4><div class="container" data-v-566314d4><p class="message" data-v-566314d4>Released under the MIT License.</p><p class="copyright" data-v-566314d4>Copyright © 2026 Henry Lan</p></div></footer><!--[--><!--]--></div></div>
-    <script>window.__VP_HASH_MAP__=JSON.parse("{\"about.md\":\"B8uESHZu\",\"blog_mneme-rag-engineering-zh.md\":\"BpxeuI-Q\",\"blog_mneme-rag-engineering.md\":\"Bg6f1BNe\",\"features_graph-rag.md\":\"BmVD8zl7\",\"features_hybrid-retrieval.md\":\"mv5GF7XE\",\"features_query-decomposition.md\":\"BONk1iv5\",\"features_safety.md\":\"CPPqRB_h\",\"guide_configuration.md\":\"D25eE3x2\",\"guide_getting-started.md\":\"BQXfLZ0J\",\"guide_tui-commands.md\":\"CgH8S09g\",\"index.md\":\"BOsEs1Fd\",\"reference_changelog.md\":\"Bq7Yx1bB\",\"reference_configuration.md\":\"pmyur7SY\",\"reference_supported-files.md\":\"C-eLYmj2\",\"superpowers_plans_2026-07-04-error-sources-fix-tdd-plan.md\":\"BLLO1IUn\",\"superpowers_specs_2026-07-04-error-sources-fix-design.md\":\"CHECTUT6\",\"zh_about.md\":\"CAVVdB5L\",\"zh_blog_mneme-rag-engineering-zh.md\":\"C5HWEkap\",\"zh_blog_mneme-rag-engineering.md\":\"DEEVfWx7\",\"zh_features_graph-rag.md\":\"NSBZpDPF\",\"zh_features_hybrid-retrieval.md\":\"C-LCg1M9\",\"zh_features_query-decomposition.md\":\"8iSgL40X\",\"zh_features_safety.md\":\"CkAv5Mna\",\"zh_guide_configuration.md\":\"BqeQ-bWL\",\"zh_guide_getting-started.md\":\"CZqNT_nH\",\"zh_guide_tui-commands.md\":\"CvD7MWCg\",\"zh_index.md\":\"DC5j9-Pe\",\"zh_reference_changelog.md\":\"DuiH4GPM\",\"zh_reference_configuration.md\":\"B9EUPsjx\",\"zh_reference_supported-files.md\":\"Cy6vv2fb\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"en-US\",\"dir\":\"ltr\",\"title\":\"Mneme\",\"description\":\"Local-document RAG with Graph RAG — Named after Mnemosyne, the Greek goddess of memory\",\"base\":\"/MNEME/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":true,\"themeConfig\":{\"logo\":\"/mneme-logo.svg\",\"siteTitle\":false,\"socialLinks\":[{\"icon\":\"github\",\"link\":\"https://github.com/realhenrylan/mneme\"}],\"footer\":{\"message\":\"Released under the MIT License.\",\"copyright\":\"Copyright © 2026 Henry Lan\"},\"search\":{\"provider\":\"local\",\"options\":{\"locales\":{\"zh\":{\"translations\":{\"button\":{\"buttonText\":\"搜索\",\"buttonAriaLabel\":\"搜索\"},\"modal\":{\"noResultsText\":\"无法找到相关结果\",\"resetButtonTitle\":\"清除查询条件\",\"footer\":{\"selectText\":\"选择\",\"navigateText\":\"切换\",\"closeText\":\"关闭\"}}}}}}}},\"locales\":{\"root\":{\"label\":\"English\",\"lang\":\"en\",\"link\":\"/\",\"themeConfig\":{\"nav\":[{\"text\":\"Home\",\"link\":\"/\"},{\"text\":\"Guide\",\"link\":\"/guide/getting-started\"},{\"text\":\"Features\",\"link\":\"/features/hybrid-retrieval\"},{\"text\":\"Blog\",\"link\":\"/blog/mneme-rag-engineering\"},{\"text\":\"Reference\",\"link\":\"/reference/configuration\"}],\"sidebar\":{\"/guide/\":[{\"text\":\"Guide\",\"items\":[{\"text\":\"Getting Started\",\"link\":\"/guide/getting-started\"},{\"text\":\"Configuration\",\"link\":\"/guide/configuration\"},{\"text\":\"TUI Commands\",\"link\":\"/guide/tui-commands\"}]}],\"/features/\":[{\"text\":\"Features\",\"items\":[{\"text\":\"Hybrid Retrieval\",\"link\":\"/features/hybrid-retrieval\"},{\"text\":\"Graph RAG\",\"link\":\"/features/graph-rag\"},{\"text\":\"Query Decomposition\",\"link\":\"/features/query-decomposition\"},{\"text\":\"Safety\",\"link\":\"/features/safety\"}]}],\"/blog/\":[{\"text\":\"Blog\",\"items\":[{\"text\":\"RAG Engineering (EN)\",\"link\":\"/blog/mneme-rag-engineering\"},{\"text\":\"RAG Engineering (中文)\",\"link\":\"/blog/mneme-rag-engineering-zh\"}]}],\"/reference/\":[{\"text\":\"Reference\",\"items\":[{\"text\":\"Configuration\",\"link\":\"/reference/configuration\"},{\"text\":\"Supported Files\",\"link\":\"/reference/supported-files\"},{\"text\":\"Changelog\",\"link\":\"/reference/changelog\"}]}]},\"editLink\":{\"pattern\":\"https://github.com/realhenrylan/mneme/edit/main/docs/:path\",\"text\":\"Edit this page on GitHub\"},\"docFooter\":{\"prev\":\"Previous page\",\"next\":\"Next page\"},\"outline\":{\"label\":\"On this page\"},\"lastUpdated\":{\"text\":\"Updated at\"}}},\"zh\":{\"label\":\"简体中文\",\"lang\":\"zh-CN\",\"link\":\"/zh/\",\"themeConfig\":{\"nav\":[{\"text\":\"首页\",\"link\":\"/zh/\"},{\"text\":\"指南\",\"link\":\"/zh/guide/getting-started\"},{\"text\":\"功能\",\"link\":\"/zh/features/hybrid-retrieval\"},{\"text\":\"博客\",\"link\":\"/zh/blog/mneme-rag-engineering\"},{\"text\":\"参考\",\"link\":\"/zh/reference/configuration\"}],\"sidebar\":{\"/zh/guide/\":[{\"text\":\"指南\",\"items\":[{\"text\":\"快速开始\",\"link\":\"/zh/guide/getting-started\"},{\"text\":\"配置\",\"link\":\"/zh/guide/configuration\"},{\"text\":\"TUI 命令\",\"link\":\"/zh/guide/tui-commands\"}]}],\"/zh/features/\":[{\"text\":\"功能\",\"items\":[{\"text\":\"混合检索\",\"link\":\"/zh/features/hybrid-retrieval\"},{\"text\":\"Graph RAG\",\"link\":\"/zh/features/graph-rag\"},{\"text\":\"查询拆解\",\"link\":\"/zh/features/query-decomposition\"},{\"text\":\"安全设计\",\"link\":\"/zh/features/safety\"}]}],\"/zh/blog/\":[{\"text\":\"博客\",\"items\":[{\"text\":\"RAG 工程实践 (中文)\",\"link\":\"/zh/blog/mneme-rag-engineering-zh\"},{\"text\":\"RAG Engineering (EN)\",\"link\":\"/zh/blog/mneme-rag-engineering\"}]}],\"/zh/reference/\":[{\"text\":\"参考\",\"items\":[{\"text\":\"配置参考\",\"link\":\"/zh/reference/configuration\"},{\"text\":\"支持的文件类型\",\"link\":\"/zh/reference/supported-files\"},{\"text\":\"更新日志\",\"link\":\"/zh/reference/changelog\"}]}]},\"editLink\":{\"pattern\":\"https://github.com/realhenrylan/mneme/edit/main/docs/:path\",\"text\":\"在 GitHub 上编辑此页\"},\"docFooter\":{\"prev\":\"上一页\",\"next\":\"下一页\"},\"outline\":{\"label\":\"本页目录\"},\"lastUpdated\":{\"text\":\"最后更新于\"}}}},\"scrollOffset\":134,\"cleanUrls\":true}");</script>
-    
+  <body class="mneme-home">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="mneme-header">
+      <div class="nav-shell">
+        <a class="mneme-brand" href="/MNEME/" aria-label="Mneme home">
+          <img src="/MNEME/mneme-logo.svg" alt="Mneme">
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <details class="nav-group">
+            <summary>Product</summary>
+            <div class="nav-popover">
+              <a href="#how-it-works">How it works</a>
+              <a href="#capabilities">Capabilities</a>
+              <a href="#data-boundary">Data boundaries</a>
+            </div>
+          </details>
+          <details class="nav-group">
+            <summary>Documentation</summary>
+            <div class="nav-popover">
+              <a href="/MNEME/guide/getting-started">Getting started</a>
+              <a href="/MNEME/guide/configuration">Configuration</a>
+              <a href="/MNEME/guide/tui-commands">TUI commands</a>
+              <a href="/MNEME/reference/supported-files">Reference</a>
+            </div>
+          </details>
+          <details class="nav-group">
+            <summary>Engineering</summary>
+            <div class="nav-popover">
+              <a href="/MNEME/blog/mneme-rag-engineering">RAG engineering</a>
+              <a href="/MNEME/reference/changelog">Changelog</a>
+              <a href="/MNEME/superpowers/specs/2026-07-04-error-sources-fix-design">Design notes</a>
+            </div>
+          </details>
+          <a class="nav-link" href="https://github.com/realhenrylan/mneme" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        </nav>
+        <div class="nav-actions">
+          <a class="nav-link language-link" href="/MNEME/zh/" lang="zh-CN">中文</a>
+          <button class="nav-icon-button" type="button" data-search-open aria-label="Search documentation">
+            <span class="icon-search" aria-hidden="true"></span>
+            <span class="keyboard-hint" aria-hidden="true">Ctrl K</span>
+          </button>
+          <button class="nav-icon-button theme-button" type="button" data-theme-toggle data-light-label="Switch to dark mode" data-dark-label="Switch to light mode" aria-pressed="false" aria-label="Switch to dark mode">
+            <span class="icon-sun" aria-hidden="true"></span><span class="icon-moon" aria-hidden="true"></span>
+          </button>
+          <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+        <div class="mobile-menu-inner">
+          <div class="mobile-menu-group">Product</div>
+          <a href="#how-it-works">How it works</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#data-boundary">Data boundaries</a>
+          <div class="mobile-menu-group">Documentation</div>
+          <a href="/MNEME/guide/getting-started">Getting started</a>
+          <a href="/MNEME/guide/configuration">Configuration</a>
+          <a href="/MNEME/reference/supported-files">Reference</a>
+          <div class="mobile-menu-group">Engineering</div>
+          <a href="/MNEME/blog/mneme-rag-engineering">RAG engineering</a>
+          <a href="/MNEME/reference/changelog">Changelog</a>
+          <a href="/MNEME/zh/" lang="zh-CN">简体中文</a>
+          <a class="mobile-menu-cta" href="https://github.com/realhenrylan/mneme" target="_blank" rel="noreferrer">View on GitHub ↗</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="content-shell hero-grid">
+          <div class="hero-copy-column">
+            <p class="eyebrow">Local-first · Evidence-backed</p>
+            <h1 id="hero-title"><span>Your documents.</span><span>A memory you can verify.</span></h1>
+            <p class="hero-copy">Mneme indexes your local files, retrieves what matters, and returns answers you can trace back to the source.</p>
+            <div class="button-row">
+              <a class="mneme-button primary" href="/MNEME/guide/getting-started">Read the documentation</a>
+              <a class="mneme-button secondary" href="https://github.com/realhenrylan/mneme" target="_blank" rel="noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="hero-proof" aria-label="Product proof points">
+              <div class="hero-proof-item"><strong>Local index</strong><span>Files stay in your workspace</span></div>
+              <div class="hero-proof-item"><strong>Source-linked answers</strong><span>Trace every claim back</span></div>
+              <div class="hero-proof-item"><strong>Python CLI + TUI</strong><span>Built for developers</span></div>
+            </div>
+          </div>
+          <figure class="hero-terminal terminal-frame">
+            <div class="terminal-titlebar">mneme · local workspace</div>
+            <img class="terminal-media" src="/MNEME/tui-demo.svg" width="994" height="953" fetchpriority="high" decoding="async" alt="Mneme TUI showing a local document question, a source-linked answer, and evidence markers">
+            <figcaption class="terminal-caption">A real terminal workflow: index · retrieve · inspect</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="Trust signals">
+        <div class="content-shell proof-grid">
+          <div class="proof-item"><span class="proof-number">01</span><div><strong>Local index</strong><span>Discovery, parsing, and retrieval happen on your machine.</span></div></div>
+          <div class="proof-item"><span class="proof-number">02</span><div><strong>Source citations</strong><span>Answers point to files, pages, and snippets you can inspect.</span></div></div>
+          <div class="proof-item"><span class="proof-number">03</span><div><strong>Explicit data boundary</strong><span>Only retrieved snippets leave when you use a configured LLM endpoint.</span></div></div>
+        </div>
+      </section>
+
+      <section class="page-section" id="how-it-works" aria-labelledby="how-title">
+        <div class="content-shell">
+          <div class="section-header">
+            <div><p class="section-kicker">How it works</p><h2 class="section-title" id="how-title">From scattered files to inspectable memory.</h2></div>
+            <p class="section-intro">Mneme keeps the workflow legible: start with the documents you already have, then follow the path from a question to the evidence behind the answer.</p>
+          </div>
+          <div class="step-rail" role="list">
+            <article class="step-card" role="listitem"><span class="step-number">01</span><h3>Add files</h3><p>Point Mneme at a folder of notes, reports, code, or exports.</p><span class="step-snippet">/files add ./docs</span></article>
+            <article class="step-card" role="listitem"><span class="step-number">02</span><h3>Build memory</h3><p>Local parsing and indexing turn documents into retrievable chunks.</p><span class="step-snippet">index fingerprint: 8c3f…</span></article>
+            <article class="step-card" role="listitem"><span class="step-number">03</span><h3>Ask across documents</h3><p>Search for meaning, exact terms, and connected context in one question.</p><span class="step-snippet">/mode graph</span></article>
+            <article class="step-card" role="listitem"><span class="step-number">04</span><h3>Inspect the evidence</h3><p>Open the cited file, page, or chunk before you trust the conclusion.</p><span class="step-snippet">[S1] report.pdf · p.12</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section" id="capabilities" aria-labelledby="capabilities-title">
+        <div class="content-shell">
+          <div class="section-header">
+            <div><p class="section-kicker">Capabilities</p><h2 class="section-title" id="capabilities-title">The useful part is what you can check.</h2></div>
+            <p class="section-intro">The internals support a clear result: find the right passage, follow the relationships around it, and keep the boundary under your control.</p>
+          </div>
+          <div class="capability-grid">
+            <article class="capability-panel"><span class="capability-index">01</span><h3>Find what matters</h3><p class="capability-result">Search that catches meaning and exact language.</p><p class="capability-tech">Hybrid Retrieval<br>Sentence Transformers · ChromaDB · BM25 · RRF</p><p>Semantic retrieval helps with concepts; lexical retrieval keeps names, IDs, and precise phrases in view.</p><a class="text-link" href="/MNEME/features/hybrid-retrieval">Explore Hybrid Retrieval ↗</a></article>
+            <article class="capability-panel"><span class="capability-index">02</span><h3>Follow the connections</h3><p class="capability-result">Cross-document questions with a visible path.</p><p class="capability-tech">Graph RAG<br>Entities · relationships · index fingerprint</p><p>Relationship expansion helps connect meeting notes, decisions, and the source passages that explain a change.</p><a class="text-link" href="/MNEME/features/graph-rag">Explore Graph RAG ↗</a></article>
+            <article class="capability-panel"><span class="capability-index">03</span><h3>Stay in control</h3><p class="capability-result">A boundary you can state precisely.</p><p class="capability-tech">Safety by design<br>Local cache · bounded inputs · configured endpoint</p><p>Local indexing stays local. When an LLM-backed feature is used, retrieved snippets go only to the endpoint you configure.</p><a class="text-link" href="/MNEME/features/safety">Read the safety boundaries ↗</a></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section evidence-section" id="evidence" aria-labelledby="evidence-title">
+        <div class="content-shell evidence-layout">
+          <div>
+            <div class="section-header"><div><p class="section-kicker">Evidence demo</p><h2 class="section-title" id="evidence-title">An answer is only useful when you can open its trail.</h2></div></div>
+            <div class="evidence-card">
+              <p class="evidence-question">Q · What changed between the two project reviews?</p>
+              <p class="evidence-answer">The project moved from <em>prototype validation</em> to a <em>bounded pilot</em> after the error budget and data boundary were clarified.</p>
+              <p class="evidence-support">The answer combines the decision note with the follow-up safety review. Expand a source to see the kind of location Mneme keeps attached.</p>
+              <div class="evidence-list" aria-label="Answer sources">
+                <details class="evidence-item"><summary class="evidence-chip"><span><span class="source-dot" aria-hidden="true"></span>S1 · review-notes.md · p.4</span></summary><div class="evidence-detail">Decision record · “Pilot scope is limited to the local corpus and the configured endpoint.”</div></details>
+                <details class="evidence-item"><summary class="evidence-chip"><span><span class="source-dot" aria-hidden="true"></span>S2 · safety-review.pdf · p.12</span></summary><div class="evidence-detail">Safety review · “Retrieved snippets are the only document content sent for answer generation.”</div></details>
+                <details class="evidence-item"><summary class="evidence-chip"><span><span class="source-dot" aria-hidden="true"></span>S3 · changelog.md · #2026-07</span></summary><div class="evidence-detail">Change entry · Adds bounded document handling and a source-linked TUI view.</div></details>
+              </div>
+            </div>
+          </div>
+          <aside class="evidence-aside"><p class="aside-label">Inspect, don't infer</p><p>Source IDs, file paths, page numbers, and chunks are part of the product experience—not an afterthought hidden in a footer.</p><p style="margin-top: 22px"><a class="text-link" href="/MNEME/reference/configuration">See what can be configured ↗</a></p></aside>
+        </div>
+      </section>
+
+      <section class="page-section boundary-section" id="data-boundary" aria-labelledby="boundary-title">
+        <div class="content-shell">
+          <div class="section-header">
+            <div><p class="section-kicker">Data boundaries</p><h2 class="section-title" id="boundary-title">Local by default is not a slogan. It is a boundary.</h2></div>
+            <p class="section-intro">Here is the exact split. The local workflow remains useful on its own; an LLM-backed feature adds one explicit, configurable handoff.</p>
+          </div>
+          <div class="boundary-grid">
+            <div class="boundary-column"><div class="boundary-label">Always local</div><ul class="boundary-list"><li>File discovery and parsing</li><li>Indexing and cache management</li><li>Vector and BM25 retrieval</li></ul></div>
+            <div class="boundary-column"><div class="boundary-label">Sent to your configured endpoint when used</div><ul class="boundary-list"><li>Retrieved snippets for answer generation</li><li>Retrieved snippets for query decomposition</li><li>Retrieved snippets for Graph RAG entity extraction</li></ul><p class="boundary-note">Mneme does not choose the endpoint for you. Read the <a class="text-link" href="/MNEME/features/safety">Safety documentation ↗</a> for defaults and limits.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="file-section" aria-labelledby="files-title">
+        <div class="content-shell">
+          <p class="section-kicker">File support</p>
+          <h2 class="section-title" id="files-title">Bring the files that already hold your context.</h2>
+          <div class="file-line" aria-label="Supported file types"><span class="file-tag">PDF</span><span class="file-tag">DOCX</span><span class="file-tag">Markdown</span><span class="file-tag">HTML</span><span class="file-tag">JSON</span><span class="file-tag">CSV</span><span class="file-tag">Code</span><span class="file-tag">Config</span></div>
+          <p style="margin: 24px 0 0"><a class="text-link" href="/MNEME/reference/supported-files">See the complete supported file list ↗</a></p>
+        </div>
+      </section>
+
+      <section class="developer-section" id="developer-start" aria-labelledby="developer-title">
+        <div class="content-shell page-section developer-layout">
+          <div class="developer-copy"><p class="section-kicker">A developer start</p><h2 class="section-title" id="developer-title">Try the shape of the workflow in one glance.</h2><p>Install the Python package, configure the endpoint only when you need an LLM-backed feature, and launch the terminal UI.</p><p style="margin-top: 20px"><a class="text-link" href="/MNEME/guide/getting-started">Read the full getting started guide ↗</a></p></div>
+          <div><div class="platform-tabs" role="tablist" aria-label="Choose your platform"><button class="platform-tab" type="button" role="tab" aria-selected="true" data-platform-tab="windows">Windows</button><button class="platform-tab" type="button" role="tab" aria-selected="false" data-platform-tab="unix">macOS &amp; Linux</button></div><div class="code-block"><div class="code-header"><span>terminal</span><button class="copy-button" type="button" data-copy-target="install-windows" data-done-label="Copied">Copy</button></div><pre id="install-windows" data-platform-panel="windows"><code><span class="code-comment"># clone and install</span>
+<span class="code-command">git clone</span> https://github.com/realhenrylan/mneme.git
+<span class="code-command">cd</span> mneme
+<span class="code-command">python -m venv</span> .venv
+<span class="code-command">.venv\Scripts\Activate.ps1</span>
+<span class="code-command">python -m pip install</span> -e <span class="code-value">&quot;.[dev]&quot;</span>
+<span class="code-command">python -m tui</span></code></pre><pre id="install-unix" data-platform-panel="unix" hidden><code><span class="code-comment"># clone and install</span>
+<span class="code-command">git clone</span> https://github.com/realhenrylan/mneme.git
+<span class="code-command">cd</span> mneme
+<span class="code-command">python -m venv</span> .venv
+<span class="code-command">source</span> .venv/bin/activate
+<span class="code-command">python -m pip install</span> -e <span class="code-value">&quot;.[dev]&quot;</span>
+<span class="code-command">python -m tui</span></code></pre></div></div>
+        </div>
+      </section>
+
+      <section class="closing-section" aria-labelledby="closing-title">
+        <div class="content-shell">
+          <div class="closing-layout"><h2 class="closing-title" id="closing-title">Build a memory you can <span>inspect.</span></h2><div class="button-row"><a class="mneme-button primary" href="/MNEME/guide/getting-started">Read the documentation</a><a class="mneme-button secondary" href="https://github.com/realhenrylan/mneme" target="_blank" rel="noreferrer">View on GitHub ↗</a></div></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="content-shell">
+        <div class="footer-grid">
+          <div class="footer-brand"><img src="/MNEME/mneme-logo.svg" alt="Mneme"><p>Local memory you can verify—built for your documents, your machine, and your workflow.</p></div>
+          <div class="footer-column"><strong>Product</strong><a href="#how-it-works">How it works</a><a href="#capabilities">Capabilities</a><a href="#data-boundary">Data boundaries</a></div>
+          <div class="footer-column"><strong>Documentation</strong><a href="/MNEME/guide/getting-started">Getting started</a><a href="/MNEME/guide/configuration">Configuration</a><a href="/MNEME/reference/supported-files">Reference</a></div>
+          <div class="footer-column"><strong>Engineering</strong><a href="/MNEME/blog/mneme-rag-engineering">Blog</a><a href="/MNEME/reference/changelog">Changelog</a><a href="/MNEME/superpowers/specs/2026-07-04-error-sources-fix-design">Design notes</a></div>
+          <div class="footer-column"><strong>Community</strong><a href="https://github.com/realhenrylan/mneme" target="_blank" rel="noreferrer">GitHub ↗</a><a href="/MNEME/zh/" lang="zh-CN">简体中文</a></div>
+        </div>
+        <div class="footer-bottom"><span>Released under the MIT License.</span><span>Copyright © 2026 Henry Lan</span></div>
+      </div>
+    </footer>
+
+    <dialog class="search-dialog" data-search-dialog aria-labelledby="search-title">
+      <div class="search-dialog-inner">
+        <form method="dialog" style="display: flex; justify-content: flex-end"><button class="search-close" type="submit" data-search-close aria-label="Close search">×</button></form>
+        <h2 class="sr-only" id="search-title">Search Mneme documentation</h2>
+        <label class="sr-only" for="search-input">Search documentation</label>
+        <input class="search-input" id="search-input" data-search-input type="search" placeholder="Search docs, features, or engineering notes…" autocomplete="off">
+        <div class="search-results">
+          <a class="search-result" data-search-item data-title="Getting started" data-keywords="install setup guide documentation" href="/MNEME/guide/getting-started"><strong>Getting started</strong><span>Install Mneme and build your first local index.</span></a>
+          <a class="search-result" data-search-item data-title="Hybrid Retrieval" data-keywords="semantic bm25 rrf search feature" href="/MNEME/features/hybrid-retrieval"><strong>Hybrid Retrieval</strong><span>Find meaning and exact terms together.</span></a>
+          <a class="search-result" data-search-item data-title="Graph RAG" data-keywords="graph relationships entities feature" href="/MNEME/features/graph-rag"><strong>Graph RAG</strong><span>Follow relationships across documents.</span></a>
+          <a class="search-result" data-search-item data-title="Safety" data-keywords="boundary endpoint local security feature" href="/MNEME/features/safety"><strong>Safety by design</strong><span>Understand what stays local and what can leave.</span></a>
+          <a class="search-result" data-search-item data-title="Supported files" data-keywords="pdf docx markdown html json csv reference" href="/MNEME/reference/supported-files"><strong>Supported files</strong><span>See the complete file format reference.</span></a>
+          <a class="search-result" data-search-item data-title="RAG engineering" data-keywords="blog engineering retrieval" href="/MNEME/blog/mneme-rag-engineering"><strong>RAG engineering</strong><span>Engineering notes from the Mneme project.</span></a>
+          <p class="search-empty" data-search-empty hidden>No matching pages yet. Try a broader term.</p>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>
