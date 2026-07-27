@@ -297,21 +297,55 @@ body.mneme-home {
 
 .mneme-home .icon-sun,
 .mneme-home .icon-moon {
+  position: relative;
   display: block;
-  width: 16px;
-  height: 16px;
-  border: 1.5px solid currentColor;
+  width: 18px;
+  height: 18px;
+  border: 0;
   border-radius: 50%;
 }
 
 .mneme-home .icon-sun {
-  box-shadow: 0 -7px 0 -6px currentColor, 0 7px 0 -6px currentColor, 7px 0 0 -6px currentColor, -7px 0 0 -6px currentColor;
+  border: 1.5px solid currentColor;
+  background: radial-gradient(circle at center, currentColor 0 3px, transparent 3.5px);
+}
+
+.mneme-home .icon-sun::before,
+.mneme-home .icon-moon::before {
+  position: absolute;
+  inset: -4px 1px;
+  border: 1px solid currentColor;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-radius: 50%;
+  content: "";
+  opacity: 0.72;
+  transform: rotate(-28deg);
 }
 
 .mneme-home .icon-moon {
-  border-color: transparent;
   background: currentColor;
-  box-shadow: 4px -3px 0 0 var(--mn-surface-canvas);
+  box-shadow: inset 5px -3px 0 0 var(--mn-surface-canvas);
+}
+
+.mneme-home .icon-moon::after,
+.mneme-home .icon-sun::after {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  content: "";
+}
+
+.mneme-home .icon-sun::after {
+  top: -5px;
+  right: -3px;
+}
+
+.mneme-home .icon-moon::after {
+  right: -4px;
+  bottom: 0;
 }
 
 .mneme-home [data-theme-toggle] .icon-moon {
@@ -517,9 +551,9 @@ html[data-theme="dark"] .mneme-home [data-theme-toggle] .icon-moon {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 994 / 952.8;
-  object-fit: cover;
-  object-position: center top;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
   background: #10100f;
 }
 
@@ -1602,9 +1636,9 @@ html[data-theme="dark"] .mneme-home [data-theme-toggle] .icon-moon {
   }
 
   .mneme-home .terminal-media {
-    max-height: 310px;
-    object-fit: cover;
-    object-position: top center;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
   }
 
   .mneme-home .proof-strip {
@@ -1816,4 +1850,84 @@ html[data-theme="dark"] .mneme-home [data-theme-toggle] .icon-moon {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+/* Type scale refresh: keep metadata compact, but make supporting copy easier to read. */
+.mneme-home {
+  font-size: 17px;
+}
+
+.mneme-home .nav-link,
+.mneme-home .nav-group > summary {
+  font-size: 15px;
+}
+
+.mneme-home .eyebrow,
+.mneme-home .section-kicker,
+.mneme-home .aside-label,
+.mneme-home .boundary-label {
+  font-size: 13px;
+}
+
+.mneme-home .hero-copy {
+  font-size: 21px;
+}
+
+.mneme-home .hero-proof-item strong,
+.mneme-home .proof-item strong {
+  font-size: 14px;
+}
+
+.mneme-home .hero-proof-item span,
+.mneme-home .proof-item span {
+  font-size: 12px;
+}
+
+.mneme-home .terminal-titlebar,
+.mneme-home .terminal-caption,
+.mneme-home .code-header,
+.mneme-home .copy-button {
+  font-size: 12px;
+}
+
+.mneme-home .step-card p,
+.mneme-home .capability-panel p,
+.mneme-home .boundary-column p {
+  font-size: 16px;
+}
+
+.mneme-home .step-snippet,
+.mneme-home .capability-tech,
+.mneme-home .evidence-question,
+.mneme-home .evidence-chip,
+.mneme-home .file-tag {
+  font-size: 13px;
+}
+
+.mneme-home .evidence-detail,
+.mneme-home .boundary-note,
+.mneme-home .search-result span,
+.mneme-home .search-empty {
+  font-size: 15px;
+}
+
+.mneme-home .section-intro,
+.mneme-home .evidence-aside p {
+  font-size: 19px;
+}
+
+.mneme-home .footer-brand p,
+.mneme-home .footer-column a,
+.mneme-home .footer-column strong,
+.mneme-home .footer-bottom {
+  font-size: 14px;
+}
+
+.mneme-home .change-kind ul,
+.mneme-home .change-entry.compact ul {
+  font-size: 15px;
+}
+
+.mneme-home pre {
+  font-size: 14px;
 }
