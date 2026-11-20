@@ -1,0 +1,196 @@
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link [ref=e6] [cursor=pointer]:
+            - /url: /MNEME/
+          - generic [ref=e7]:
+            - button "Search" [ref=e10] [cursor=pointer]:
+              - generic [ref=e14]:
+                - generic [ref=e15]: Ctrl
+                - generic [ref=e16]: K
+            - navigation "Main Navigation" [ref=e17]:
+              - link "Home" [ref=e19] [cursor=pointer]:
+                - /url: /MNEME/
+              - link "Guide" [ref=e21] [cursor=pointer]:
+                - /url: /MNEME/guide/getting-started
+              - link "Features" [ref=e23] [cursor=pointer]:
+                - /url: /MNEME/features/hybrid-retrieval
+              - link "Blog" [ref=e25] [cursor=pointer]:
+                - /url: /MNEME/blog/mneme-rag-engineering
+              - link "Reference" [ref=e27] [cursor=pointer]:
+                - /url: /MNEME/reference/configuration
+            - button "extra navigation" [ref=e30] [cursor=pointer]
+  - button "On this page" [ref=e121] [cursor=pointer]
+  - complementary [ref=e123]:
+    - navigation "Sidebar Navigation" [ref=e125]:
+      - generic [ref=e128]:
+        - button [ref=e129]:
+          - heading "Guide" [level=2] [ref=e131]
+        - generic [ref=e132]:
+          - link [ref=e136] [cursor=pointer]:
+            - /url: /MNEME/guide/getting-started
+            - paragraph [ref=e137]: Getting Started
+          - link [ref=e141] [cursor=pointer]:
+            - /url: /MNEME/guide/configuration
+            - paragraph [ref=e142]: Configuration
+          - link [ref=e146] [cursor=pointer]:
+            - /url: /MNEME/guide/tui-commands
+            - paragraph [ref=e147]: TUI Commands
+  - generic [ref=e151]:
+    - main [ref=e152]:
+      - generic [ref=e154]:
+        - heading [level=1] [ref=e155]:
+          - text: Getting Started
+          - link "Permalink to \"Getting Started\"" [ref=e156] [cursor=pointer]:
+            - /url: "#getting-started"
+            - text: "#"
+        - paragraph [ref=e157]: Mneme indexes local documents and answers questions through an OpenAI-compatible LLM endpoint. It provides Standard RAG and Graph RAG modes, with a bilingual terminal UI and a Python CLI.
+        - heading [level=2] [ref=e158]:
+          - text: Prerequisites
+          - link "Permalink to \"Prerequisites\"" [ref=e159] [cursor=pointer]:
+            - /url: "#prerequisites"
+            - text: "#"
+        - list [ref=e160]:
+          - listitem [ref=e161]: Python 3.10 or newer
+          - listitem [ref=e162]: An OpenAI-compatible API endpoint and API key (for example, DeepSeek or OpenAI)
+        - heading [level=2] [ref=e163]:
+          - text: Install
+          - link "Permalink to \"Install\"" [ref=e164] [cursor=pointer]:
+            - /url: "#install"
+            - text: "#"
+        - generic [ref=e165]:
+          - button "Copy Code" [ref=e166] [cursor=pointer]
+          - generic [ref=e167]: bash
+          - code [ref=e169]:
+            - generic [ref=e170]: git clone https://github.com/realhenrylan/mneme.git
+            - generic [ref=e171]: cd mneme
+            - generic [ref=e172]: python -m venv .venv
+          - generic [ref=e173]: 1 2 3
+        - paragraph [ref=e174]: "Activate the environment:"
+        - generic [ref=e175]:
+          - button "Copy Code" [ref=e176] [cursor=pointer]
+          - generic [ref=e177]: powershell
+          - code [ref=e179]:
+            - generic [ref=e180]: "# Windows PowerShell"
+            - generic [ref=e181]: .venv\Scripts\Activate.ps1
+          - generic [ref=e182]: 1 2
+        - generic [ref=e183]:
+          - button "Copy Code" [ref=e184] [cursor=pointer]
+          - generic [ref=e185]: bash
+          - code [ref=e187]:
+            - generic [ref=e188]: "# macOS / Linux"
+            - generic [ref=e189]: source .venv/bin/activate
+          - generic [ref=e190]: 1 2
+        - paragraph [ref=e191]: "Install the package and development test dependencies:"
+        - generic [ref=e192]:
+          - button "Copy Code" [ref=e193] [cursor=pointer]
+          - generic [ref=e194]: bash
+          - code [ref=e196]:
+            - generic [ref=e197]: python -m pip install -e ".[dev]"
+          - generic [ref=e198]: "1"
+        - heading [level=2] [ref=e199]:
+          - text: Configure
+          - link "Permalink to \"Configure\"" [ref=e200] [cursor=pointer]:
+            - /url: "#configure"
+            - text: "#"
+        - generic [ref=e201]:
+          - button "Copy Code" [ref=e202] [cursor=pointer]
+          - generic [ref=e203]: bash
+          - code [ref=e205]:
+            - generic [ref=e206]: "copy .env.example .env # Windows PowerShell"
+            - generic [ref=e207]: "# cp .env.example .env # macOS / Linux"
+          - generic [ref=e208]: 1 2
+        - paragraph [ref=e209]: "At minimum, set:"
+        - generic [ref=e210]:
+          - button "Copy Code" [ref=e211] [cursor=pointer]
+          - generic [ref=e212]: dotenv
+          - code [ref=e214]:
+            - generic [ref=e215]: API_KEY=sk-your-api-key-here
+            - generic [ref=e216]: BASE_URL=https://api.deepseek.com/v1
+            - generic [ref=e217]: LLM_MODEL=deepseek-chat
+          - generic [ref=e218]: 1 2 3
+        - paragraph [ref=e219]:
+          - text: On first launch, the onboarding wizard can collect and save the API settings. API keys are stored in
+          - code [ref=e220]: .env
+          - text: ; never commit that file or index secrets.
+        - heading [level=2] [ref=e221]:
+          - text: Run the Terminal UI
+          - link "Permalink to \"Run the Terminal UI\"" [ref=e222] [cursor=pointer]:
+            - /url: "#run-the-terminal-ui"
+            - text: "#"
+        - generic [ref=e223]:
+          - button "Copy Code" [ref=e224] [cursor=pointer]
+          - generic [ref=e225]: bash
+          - code [ref=e227]:
+            - generic [ref=e228]: python -m tui
+          - generic [ref=e229]: "1"
+        - paragraph [ref=e230]: The UI supports Standard RAG and Graph RAG, file management, directory watching, settings, source display, and streaming answers.
+        - heading [level=2] [ref=e231]:
+          - text: Run the CLI
+          - link "Permalink to \"Run the CLI\"" [ref=e232] [cursor=pointer]:
+            - /url: "#run-the-cli"
+            - text: "#"
+        - paragraph [ref=e233]: "Start an interactive Standard RAG session:"
+        - generic [ref=e234]:
+          - button "Copy Code" [ref=e235] [cursor=pointer]
+          - generic [ref=e236]: bash
+          - code [ref=e238]:
+            - generic [ref=e239]: python -m src.rag --files /path/to/docs --collection my_docs
+          - generic [ref=e240]: "1"
+        - paragraph [ref=e241]: "Start an interactive Graph RAG session:"
+        - generic [ref=e242]:
+          - button "Copy Code" [ref=e243] [cursor=pointer]
+          - generic [ref=e244]: bash
+          - code [ref=e246]:
+            - generic [ref=e247]: python -m src.graph_rag --files /path/to/docs --collection my_docs --alpha 0.7
+          - generic [ref=e248]: "1"
+        - paragraph [ref=e249]:
+          - text: Use
+          - code [ref=e250]: "--rebuild"
+          - text: "when you intentionally want to rebuild the collection. Graph RAG also supports a single query:"
+        - generic [ref=e251]:
+          - button "Copy Code" [ref=e252] [cursor=pointer]
+          - generic [ref=e253]: bash
+          - code [ref=e255]:
+            - generic [ref=e256]: python -m src.graph_rag \
+            - generic [ref=e257]: "--files /path/to/docs \\"
+            - generic [ref=e258]: "--query \"What are the main findings?\""
+          - generic [ref=e259]: 1 2 3
+        - heading [level=2] [ref=e260]:
+          - text: Next Steps
+          - link "Permalink to \"Next Steps\"" [ref=e261] [cursor=pointer]:
+            - /url: "#next-steps"
+            - text: "#"
+        - list [ref=e262]:
+          - listitem [ref=e263]:
+            - link "Configuration Reference" [ref=e264] [cursor=pointer]:
+              - /url: /MNEME/guide/configuration
+            - text: — all environment variables and their meanings
+          - listitem [ref=e265]:
+            - link "TUI Commands" [ref=e266] [cursor=pointer]:
+              - /url: /MNEME/guide/tui-commands
+            - text: — slash commands and shortcuts
+          - listitem [ref=e267]:
+            - link "Hybrid Retrieval" [ref=e268] [cursor=pointer]:
+              - /url: /MNEME/features/hybrid-retrieval
+            - text: — how Mneme combines semantic and lexical search
+          - listitem [ref=e269]:
+            - link "Graph RAG" [ref=e270] [cursor=pointer]:
+              - /url: /MNEME/features/graph-rag
+            - text: — entity graph construction and retrieval expansion
+    - contentinfo [ref=e271]:
+      - generic [ref=e272]:
+        - link "Edit this page on GitHub" [ref=e274] [cursor=pointer]:
+          - /url: https://github.com/realhenrylan/mneme/edit/main/docs/guide/getting-started.md
+        - paragraph [ref=e277]:
+          - text: "Updated at:"
+          - time [ref=e278]: 2026/7/27 09:28
+      - navigation "Pager" [ref=e279]:
+        - link "Next page Configuration" [ref=e283] [cursor=pointer]:
+          - /url: /MNEME/guide/configuration
+          - generic [ref=e284]: Next page
+          - generic [ref=e285]: Configuration

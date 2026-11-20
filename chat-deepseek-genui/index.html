@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeepSeek GenUI — 让 DeepSeek 的回答变成可调可算的交互界面</title>
+    <meta
+      name="description"
+      content="DeepSeek GenUI 是一个浏览器扩展，在 chat.deepseek.com 的文字回答里原位嵌入滑块、图表、筛选表格与 13 种轻量小组件；参数变化本地实时计算，再一键把当前条件带回对话。"
+    />
+    <meta name="theme-color" content="#F8FAFC" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DeepSeek GenUI — 可调可算的交互界面" />
+    <meta
+      property="og:description"
+      content="在 DeepSeek 回答里原位嵌入滑块、图表、表格与 13 种内联小组件，本地计算，条件一键回流对话。"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="alternate icon" type="image/png" sizes="32x32" href="./icon-32.png" />
+    <link rel="mask-icon" href="./favicon.svg" color="#4D6BFE" />
+    <script>
+      // 首屏主题在解析 HTML 前确定，避免浅色页面先闪一帧深色。
+      (function () {
+        try {
+          var stored = localStorage.getItem('dsgenui-site-theme');
+          var dark =
+            stored === 'dark' ||
+            (stored === null &&
+              window.matchMedia &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches);
+          var theme = dark ? 'dark' : 'light';
+          document.documentElement.className = theme;
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (error) {
+          document.documentElement.className = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/chat-deepseek-genui/assets/index-CNqG51jK.js"></script>
+    <link rel="stylesheet" crossorigin href="/chat-deepseek-genui/assets/index-CajtzIgD.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="font-family: sans-serif; padding: 24px">
+        DeepSeek GenUI 展示页需要启用 JavaScript 才能运行真实交互组件。扩展本身安装后可在
+        DeepSeek 页面正常使用。
+      </p>
+    </noscript>
+  </body>
+</html>
